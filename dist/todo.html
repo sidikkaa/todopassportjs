@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TO DO LIST</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+
+<body class="font-['Arial'] text-center bg-gradient-to-tr from-blue-400 to-yellow-500 min-h-screen">
+    <h1 class="font-semibold underline text-3px py-4">MY TO DO LIST</h1>
+    <div class="">
+        <input type="text" id="text-input" placeholder="Reckon new task"
+            class="border border-black-900 p-5 w-[70%] rounded-xl">
+        <button id="addButton" class="p-4 bg-black text-white font-bold rounded-xl">Add task</button>
+    </div>
+    <ol id="taskList" class="space-y-4 capitalize">
+    </ol>
+    <script>
+        const input = document.querySelector("#text-input")
+        const button = document.querySelector("#addButton")
+        const List = document.querySelector("#taskList")
+        button.addEventListener("click", () => {
+            const inputValue = input.value
+            const ListElement = document.createElement("li")
+            ListElement.textContent = inputValue
+            List.appendChild(ListElement)
+            ListElement.classList.add("text-gray-700")
+            ListElement.addEventListener("click", () => {
+                ListElement.classList.toggle("hidden");
+            })
+
+
+        })
+    </script>
+
+</body>
+
+</html>
